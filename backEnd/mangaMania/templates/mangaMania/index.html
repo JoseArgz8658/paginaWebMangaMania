@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MangaMania</title>
+
+    <!-- Inicio Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Termino Bootstrap -->
+    <link rel="stylesheet" href="{% static 'mangaMania/CSS/EstilosPages.css' %}"><!-- Llamar Style deseado -->
+    <link rel="website icon" type="png" href="{% static 'mangaMania/Images/LogoMangaMania.png' %}"> <!-- Llamar el logo de la pagina -->
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    -->
+
+    <script src="{% static 'mangaMania/JavaScript/busquedaManga.js' %}"></script>
+</head>
+<body>
+    <!-- Cuerpo del codigo -->
+    <header>
+      <!-- Cabeza del codigo -->
+      <div class="container">
+        <h1>Bienvenidos a MangaMania</h1>
+        <b>Nuestra Pagina Web les ofrece una variedad de Mangas via Online donde podras ver tus Mangas favoritos.</b>
+      </div>
+    </header>
+    <main>
+      <!-- Codigo principal o central -->
+      <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'index' %}"><i class="bi bi-house-fill"></i> Inicio</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'pageManga' %}"><i class="bi bi-book"></i> Mangas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'pageCategoria' %}"><i class="bi bi-tags"></i> Categoria</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'pagePopular' %}"><i class="bi bi-star"></i> Popular</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'pageSuscripcion' %}"><i class="bi bi-shop"></i> Suscripccion</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav><br>
+      <div class="container">
+        <form class="d-flex" role="search" id="searchForm">
+          <input class="form-control me-2" type="search" placeholder="Buscar Manga" aria-label="Search" id="searchInput">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+        <div id="resultContainer" class="mt-2" style="max-height: 150px; overflow-y: auto;"></div>
+      </div>
+      <!-- Inicio Carrusel
+      <h2>Mangas Populares</h2>
+      <div id="carouselExampleIndicators" class="carousel slide carousel-container" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          <div class="carousel-item active">
+            <img
+              src="{% static 'mangaMania/Images/FondoPages.jpg' %}"
+              class="d-block w-100"
+              alt="TituloBoruto"/>
+          </div>
+
+          <div class="carousel-item">
+            <img
+                src="{% static 'mangaMania/Images/FondoPages.jpg' %}"
+                class="d-block w-100"
+                alt="TituloJujutsuKaisen"/>
+          </div>
+
+          <div class="carousel-item">
+            <img
+              src="{% static 'mangaMania/Images/FondoPages.jpg' %}"
+              class="d-block w-100"
+              alt="TituloOnePiece"/>
+          </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+      Termino Carrusel -->
+      <!-- Inicio Introduccion de Pagina -->
+      <div class="container text-center">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+
+          <div class="col">
+            <div class="card h-100">
+              <img src="{% static 'mangaMania/Images/LogoMangaMania.png' %}" class="card-img-top" alt="LogoMangaMania">
+              <div class="card-body">
+                <h5 class="card-title">Manga-Mania</h5>
+                <p class="card-text"><b>¿Qué es MangaManía?</b><br>
+                  En MangaManía encontrarás una vasta colección de mangas de todos los géneros y estilos. Desde emocionantes sagas de acción y aventuras hasta conmovedoras historias románticas y dramas profundos, tenemos algo para todos los gustos. Nuestro objetivo es proporcionar a los lectores una experiencia fluida y accesible, permitiéndote disfrutar de tus mangas preferidos en cualquier momento y lugar.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <b><h3>Bienvenido a MangaManía: Paraíso del Manga Online</h3>
+              ¡Explora un mundo lleno de aventuras, fantasía y emoción con MangaManía! Somos la plataforma definitiva para los amantes del manga, donde puedes disfrutar de tus series favoritas, descubrir nuevas historias y sumergirte en increíbles mundos ilustrados.
+    
+              <h3>¿Por Qué Elegirnos?</h3>
+              · Biblioteca Extensa: Accede a una amplia variedad de mangas, incluyendo títulos populares y joyas ocultas.<br>
+              · Actualizaciones Diarias: Mantente al día con las últimas publicaciones y capítulos recién lanzados.<br>
+              · Interfaz Amigable: Navega fácilmente por nuestra plataforma con una interfaz intuitiva y fácil de usar.<br>
+              · Lectura Sin Interrupciones: Disfruta de una experiencia de lectura sin anuncios molestos.<br>
+              · Comunidad Vibrante: Únete a una comunidad de apasionados por el manga, comparte tus opiniones y descubre recomendaciones personalizadas.
+              <h3>Comienza Tu Aventura</h3>
+              Ya seas un veterano del manga o un recién llegado, en "MangaManía" te invitamos a explorar nuestro catálogo, crear tu lista de lecturas y sumergirte en las historias que han capturado los corazones de millones alrededor del mundo. Regístrate hoy y empieza a leer gratis o suscríbete para acceder a contenido exclusivo y beneficios adicionales</b>
+          </div>
+
+        </div>
+      </div><br>
+      <!-- Termino Introduccion de Pagina -->
+  </main>
+  <footer>
+    <!-- Pie de codigo -->
+    <h3>Entrar en la comunidad</h3>
+    <b>¿Te gustaria entrar en nuestra sociedad para estar al dia con nuestros articulos?</b><br>
+    <b> <a href="{% url 'registro' %}"> Registrate </a> o si ya tienes
+        <a href="{% url 'inicioSesion' %}"> Inicia Sesion</a></b>
+  </footer>
+</body>
+</html>

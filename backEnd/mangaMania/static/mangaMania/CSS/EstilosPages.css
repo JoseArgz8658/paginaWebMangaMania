@@ -1,0 +1,49 @@
+/* Estilo de las Paginas */
+header, footer {
+    margin: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    margin: 0;
+    color: #fff;
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(7, 7, 7);
+    background-image: url('../Images/FondoPages.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+hr {
+    border: 5px solid red;
+}
+
+.carousel-container {
+    max-width: 900px;
+    margin: 0 auto;
+    aspect-ratio: 3/1;
+    object-fit: contain;
+}
+.carousel-img {
+    max-height: 500px;
+    width: 500px;
+}
+
+.card {
+    margin: 10px;
+}
+
+#resultContainer {
+  max-height: 300px;
+  overflow-y: auto;
+}

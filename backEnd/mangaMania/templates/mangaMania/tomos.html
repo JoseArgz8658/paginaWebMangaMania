@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tomos del Manga</title>
+
+  <!-- Inicio Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Fin Bootstrap -->
+
+  <link rel="stylesheet" href="{% static 'mangaMania/CSS/EstilosPages.css' %}"><!-- Llamar Style deseado -->
+    <link rel="website icon" type="png" href="{% static 'mangaMania/Images/LogoMangaMania.png' %}"> <!-- Llamar el logo de la pagina -->
+
+  <!-- jQuery + JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="{% static 'mangaMania/JavaScript/tomos.js' %}" defer></script>
+</head>
+<body>
+
+  <header>
+    <div class="contenedor">
+      <h1>MangaMania - Tomos</h1>
+    </div>
+  </header>
+
+  <main class="container my-4">
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+      <div class="container">
+        <a class="navbar-brand" href="javascript:history.back()"><i class="bi bi-skip-backward"></i> Regresar</a>
+        <a class="navbar-brand" href="{% url 'index' %}"><i class="bi bi-house-fill"></i> Inicio</a>
+      </div>
+    </nav>
+
+    <div id="info-manga" class="mt-4"></div>
+
+    <!-- Inicio Tabla de tomos -->
+    <h2 class="mt-5">Tomos disponibles</h2>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered mt-3" id="tabla-tomos">
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Publicacion del Tomo</th>
+            <th>PDF</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-tomos-body">
+          <!-- Aquí se insertan los tomos -->
+        </tbody>
+      </table>
+    </div>
+    <!-- Fin Tabla de tomos -->
+  </main>
+
+  <footer>
+    <h3>Entrar en la comunidad</h3>
+    <b>¿Te gustaría entrar en nuestra sociedad para estar al día con nuestros artículos?</b><br />
+    <b><a href="{% url 'registro' %}">Regístrate</a> o si ya tienes cuenta <a href="{% url 'inicioSesion' %}">Inicia Sesión</a></b>
+  </footer>
+
+</body>
+</html>
